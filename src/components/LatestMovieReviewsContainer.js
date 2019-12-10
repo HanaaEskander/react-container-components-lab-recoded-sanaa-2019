@@ -11,7 +11,7 @@ export default class LatestMovieReviewsContainer extends Component{
     constructor(){
         super();
         this.state = {
-            reviews:[]
+            r:[]
         }
     }
 
@@ -19,7 +19,7 @@ export default class LatestMovieReviewsContainer extends Component{
         fetch(URL).then(res=>res.json()).then(data=>{
             console.log(data);
             this.setState({
-                reviews:data.results,
+                r:data.results,
             })
         }).catch(err=>console.log(err));
     }
@@ -27,7 +27,7 @@ export default class LatestMovieReviewsContainer extends Component{
     render(){
         return(
             <div className="latest-movie-reviews" style={{margin:'40px auto'}}>
-            <MovieReviews reviews={this.state.reviews} />
+            <MovieReviews r={this.state.r} />
             </div>
         );
     }
