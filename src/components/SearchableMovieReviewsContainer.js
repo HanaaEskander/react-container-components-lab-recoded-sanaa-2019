@@ -12,7 +12,7 @@ export default class SearchableMovieReviewsContainer extends Component{
     constructor(){
         super();
         this.state = {
-            reviews:[],
+            r:[],
             searchTerm:''
         }
     }
@@ -22,7 +22,7 @@ export default class SearchableMovieReviewsContainer extends Component{
                 return filtered.display_title.includes(this.state.searchTerm)
             })
             this.setState({
-                reviews:result
+                r:result
             })
         }).catch(err=>console.log(err));
     }
@@ -39,7 +39,7 @@ export default class SearchableMovieReviewsContainer extends Component{
         return(
             <div className='review-list' style={{margin:'4px auto'}}>
             <SearchFrom handleSearch={this.handleFromSubmit} handleChange={this.handleInputChange} value={this.state.searchTerm} />
-            <MovieReviews reviews={this.state.reviews} />
+            <MovieReviews reviews={this.state.r} />
             </div>
         );
     }
